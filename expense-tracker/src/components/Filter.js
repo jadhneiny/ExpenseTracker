@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 
-const Filter = ({ onFilterChange, onDateChange }) => {
+const Filter = ({ onFilterChange, onDateChange, onTagChange }) => {
   const categories = useSelector(state => state.expenses.categories);
   const [selectedCategory, setSelectedCategory] = useState('All');
+  const [selectedTag, setSelectedTag] = useState('');
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
 
@@ -11,6 +12,12 @@ const Filter = ({ onFilterChange, onDateChange }) => {
     const category = e.target.value;
     setSelectedCategory(category);
     onFilterChange(category);
+  };
+
+  const handleTagChange = (e) => {
+    const tag = e.target.value;
+    setSelectedTag(tag);
+    onTagChange(tag);
   };
 
   const handleDateChange = () => {
@@ -30,6 +37,15 @@ const Filter = ({ onFilterChange, onDateChange }) => {
           <option key={cat} value={cat}>{cat}</option>
         ))}
       </select>
+
+      <label className="block text-gray-700 mt-4 mb-2">Filter by Tag:</label>
+      <input
+        type="text"
+        value={selectedTag}
+        onChange={handleTagChange}
+        placeholder="Enter tag"
+        className="w-full p-2 border border-gray-300 rounded-md mb-2"
+      />
 
       <div className="mt-4">
         <label className="block text-gray-700 mb-2">Filter by Date:</label>

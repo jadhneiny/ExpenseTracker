@@ -27,6 +27,7 @@ const loadFromLocalStorage = () => {
       expenses: loadFromLocalStorage(), // Load from localStorage
       categories: ['Food', 'Transport', 'Bills', 'Entertainment', 'Others'],
       budget: 0,
+      tags: [],
     },
     reducers: {
       addExpense: (state, action) => {
@@ -47,8 +48,11 @@ const loadFromLocalStorage = () => {
       setBudget: (state, action) => {
         state.budget = action.payload; // Set the budget
       },
+      addTag: (state, action) => {
+        state.tags.push(action.payload); // Add new tag
+      },
     },
   });
   
-  export const { addExpense, removeExpense, editExpense, setBudget } = expensesSlice.actions;
+  export const { addExpense, removeExpense, editExpense, setBudget, addTag } = expensesSlice.actions;
   export default expensesSlice.reducer;

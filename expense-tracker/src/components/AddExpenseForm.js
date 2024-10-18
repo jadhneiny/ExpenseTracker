@@ -6,6 +6,7 @@ const AddExpenseForm = () => {
   const [amount, setAmount] = useState('');
   const [description, setDescription] = useState('');
   const [category, setCategory] = useState('Food');
+  const [tags, setTags] = useState('');
   const categories = useSelector(state => state.expenses.categories);
   const dispatch = useDispatch();
 
@@ -13,16 +14,20 @@ const AddExpenseForm = () => {
     e.preventDefault();
     if (!amount || !description) return;
 
+    const tagsArray = tags.split(',').map(tag => tag.trim());
+
     dispatch(addExpense({
       id: Date.now(),
       amount,
       description,
       category,
+      tags: tagsArray, 
       date: new Date().toLocaleDateString(),
     }));
 
     setAmount('');
     setDescription('');
+    setTags(''); 
   };
 
   return (
@@ -50,6 +55,13 @@ const AddExpenseForm = () => {
           <option key={cat} value={cat}>{cat}</option>
         ))}
       </select>
+      <input
+        type="text"
+        value={tags}
+        onChange={(e) => setTags(e.target.value)}
+        placeholder="Tags (comma separated)"
+        className="w-full p-2 border border-gray-300 rounded-md mb-2"
+      />
       <button type="submit" className="w-full p-2 bg-blue-500 text-white rounded-md">
         Add Expense
       </button>
