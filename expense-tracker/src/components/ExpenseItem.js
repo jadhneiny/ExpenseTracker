@@ -7,7 +7,7 @@ const ExpenseItem = ({ expense }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [amount, setAmount] = useState(expense.amount);
   const [description, setDescription] = useState(expense.description);
-  const [tags, setTags] = useState(expense.tags ? expense.tags.join(', ') : ''); 
+  const [tags, setTags] = useState(expense.tags ? expense.tags.join(', ') : '');
 
   const handleSave = () => {
     const updatedTags = tags.split(',').map(tag => tag.trim());
@@ -16,8 +16,9 @@ const ExpenseItem = ({ expense }) => {
       amount,
       description,
       category: expense.category,
-      tags: updatedTags, 
+      tags: updatedTags,
       date: expense.date,
+      recurring: expense.recurring,
     }));
     setIsEditing(false);
   };
@@ -59,6 +60,9 @@ const ExpenseItem = ({ expense }) => {
           <div className="flex-1">
             <p className="text-lg font-semibold">{expense.description}</p>
             <p className="text-sm text-gray-600">{expense.category} - {expense.date}</p>
+            {expense.recurring && (
+              <p className="text-xs text-green-500">Recurring</p>
+            )}
             <div className="text-xs text-gray-500">
               {expense.tags && expense.tags.map(tag => (
                 <span key={tag} className="inline-block mr-2 px-2 py-1 bg-blue-100 text-blue-500 rounded">

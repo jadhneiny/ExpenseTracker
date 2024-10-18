@@ -7,6 +7,7 @@ const AddExpenseForm = () => {
   const [description, setDescription] = useState('');
   const [category, setCategory] = useState('Food');
   const [tags, setTags] = useState('');
+  const [isRecurring, setIsRecurring] = useState(false); // Recurring state
   const categories = useSelector(state => state.expenses.categories);
   const dispatch = useDispatch();
 
@@ -21,13 +22,15 @@ const AddExpenseForm = () => {
       amount,
       description,
       category,
-      tags: tagsArray, 
+      tags: tagsArray,
+      recurring: isRecurring, // Add recurring field
       date: new Date().toLocaleDateString(),
     }));
 
     setAmount('');
     setDescription('');
-    setTags(''); 
+    setTags('');
+    setIsRecurring(false); // Reset recurring checkbox
   };
 
   return (
@@ -62,6 +65,15 @@ const AddExpenseForm = () => {
         placeholder="Tags (comma separated)"
         className="w-full p-2 border border-gray-300 rounded-md mb-2"
       />
+      <label className="block text-gray-700 mb-2">
+        <input
+          type="checkbox"
+          checked={isRecurring}
+          onChange={() => setIsRecurring(!isRecurring)}
+          className="mr-2"
+        />
+        Recurring Expense
+      </label>
       <button type="submit" className="w-full p-2 bg-blue-500 text-white rounded-md">
         Add Expense
       </button>

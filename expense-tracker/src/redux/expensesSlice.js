@@ -51,8 +51,15 @@ const loadFromLocalStorage = () => {
       addTag: (state, action) => {
         state.tags.push(action.payload); // Add new tag
       },
+      markAsRecurring: (state, action) => {
+        const index = state.expenses.findIndex(exp => exp.id === action.payload.id);
+        if (index !== -1) {
+          state.expenses[index].recurring = action.payload.recurring;
+          saveToLocalStorage(state.expenses);
+        }
+      },
     },
   });
   
-  export const { addExpense, removeExpense, editExpense, setBudget, addTag } = expensesSlice.actions;
+  export const { addExpense, removeExpense, editExpense, setBudget, addTag, markAsRecurring } = expensesSlice.actions;
   export default expensesSlice.reducer;
