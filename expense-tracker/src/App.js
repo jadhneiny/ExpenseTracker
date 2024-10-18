@@ -4,6 +4,7 @@ import ExpenseList from './components/ExpenseList';
 import Summary from './components/Summary';
 import ExpenseChart from './components/ExpenseChart';
 import BudgetInput from './components/BudgetInput';
+import ExportCSV from './components/ExportCSV';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <BudgetInput />
       <Summary />
       <ExpenseChart />
+      <ExportCSV />
       <AddExpenseForm />
       <ExpenseList />
     </div>
