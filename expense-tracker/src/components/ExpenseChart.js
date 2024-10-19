@@ -27,12 +27,14 @@ const ExpenseChart = () => {
         label: 'Expenses by Category',
         data: Object.values(categoryTotals),
         backgroundColor: ['#ff6384', '#36a2eb', '#cc65fe', '#ffce56', '#4bc0c0'],
+        borderColor: ['#ffffff', '#ffffff', '#ffffff', '#ffffff', '#ffffff'], // Adding white borders for contrast
+        borderWidth: 2, // Slightly thicker borders for better visibility
       },
     ],
   };
 
   return (
-    <div className="max-w-lg mx-auto bg-white p-4 rounded-lg shadow-md">
+    <div className="max-w-lg mx-auto bg-white p-4 rounded-lg shadow-md dark:bg-gray-800 dark:text-white">
       <h3 className="text-xl font-semibold mb-4">Expenses by Category</h3>
       <Pie data={data} />
     </div>

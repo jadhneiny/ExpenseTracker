@@ -32,7 +32,7 @@ const BudgetNotification = () => {
   return (
     <>
       {showNotification && (
-        <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4 max-w-lg mx-auto">
+        <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4 max-w-lg mx-auto dark:bg-red-900 dark:border-red-600 dark:text-red-200">
           <strong className="font-bold">Warning!</strong>
           <span className="block sm:inline"> You’ve spent more than 80% of your budget for this month.</span>
         </div>

@@ -14,16 +14,16 @@ const BudgetInput = () => {
   };
 
   return (
-    <div className="max-w-lg mx-auto bg-white p-4 rounded-lg shadow-md mb-4">
+    <div className="max-w-lg mx-auto bg-white p-4 rounded-lg shadow-md mb-4 dark:bg-gray-800 dark:text-white">
       <h3 className="text-xl font-semibold mb-2">Set Monthly Budget</h3>
       <input
         type="number"
         value={inputBudget}
         onChange={(e) => setInputBudget(e.target.value)}
-        className="w-full p-2 border border-gray-300 rounded-md mb-2"
+        className="w-full p-2 border border-gray-300 rounded-md mb-2 dark:bg-gray-700 dark:text-white dark:border-gray-600"
         placeholder="Enter your budget"
       />
-      <button onClick={handleSetBudget} className="w-full p-2 bg-blue-500 text-white rounded-md">
+      <button onClick={handleSetBudget} className="w-full p-2 bg-blue-500 text-white rounded-md dark:bg-blue-700">
         Set Budget
       </button>
     </div>

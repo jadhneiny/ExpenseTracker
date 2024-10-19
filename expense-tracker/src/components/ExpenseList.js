@@ -32,9 +32,13 @@ const ExpenseList = () => {
   });
 
   return (
-    <div className="max-w-lg mx-auto p-4">
+    <div className="max-w-lg mx-auto p-4 bg-white rounded-lg shadow-md dark:bg-gray-800 dark:text-white">
       <h2 className="text-xl mb-4">Expense History</h2>
-      <Filter onFilterChange={handleFilterChange} onDateChange={handleDateChange} onTagChange={handleTagChange} />
+      <Filter 
+        onFilterChange={handleFilterChange} 
+        onDateChange={handleDateChange} 
+        onTagChange={handleTagChange} 
+      />
       <ul>
         {filteredExpenses.map(exp => (
           <ExpenseItem key={exp.id} expense={exp} />
