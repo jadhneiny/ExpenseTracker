@@ -8,6 +8,7 @@ import ExportCSV from './components/ExportCSV';
 import BudgetNotification from './components/BudgetNotification';
 import DarkModeToggle from './components/DarkModeToggle';
 import CurrencySelector from './components/CurrencySelector';
+import ExportPDF from './components/ExportPDF';
 import { useTheme } from './ThemeContext';
 
 function App() {
@@ -43,9 +44,10 @@ function App() {
         <ExpenseChart />
       </div>
 
-      {/* Section 5: Export CSV */}
+      {/* Section 5: Export CSV and PDF*/}
       <div className="w-full max-w-3xl text-center">
         <ExportCSV />
+        <ExportPDF />
       </div>
       
     </div>

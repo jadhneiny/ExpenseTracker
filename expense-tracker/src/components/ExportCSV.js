@@ -13,12 +13,12 @@ const ExportCSV = () => {
   ];
 
   return (
-    <div className="max-w-lg mx-auto p-4 bg-white rounded-lg shadow-md dark:bg-gray-800 dark:text-white">
+    <div className="max-w-lg mx-auto mb-4">
       <CSVLink
         data={expenses}
         headers={headers}
         filename="expenses.csv"
-        className="w-full p-2 bg-green-500 text-white rounded-md dark:bg-green-700 hover:bg-green-600 dark:hover:bg-green-600"
+        className="w-full p-2 bg-green-500 text-white rounded-md hover:bg-green-600 dark:bg-green-700 dark:hover:bg-green-600"
       >
         Download Expenses CSV
       </CSVLink>
