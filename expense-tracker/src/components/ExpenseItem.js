@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux'; 
 import { removeExpense, editExpense } from '../redux/expensesSlice';
 
 const ExpenseItem = ({ expense }) => {
   const dispatch = useDispatch();
+  const currency = useSelector(state => state.expenses.currency); 
+
   const [isEditing, setIsEditing] = useState(false);
   const [amount, setAmount] = useState(expense.amount);
   const [description, setDescription] = useState(expense.description);
@@ -72,7 +74,7 @@ const ExpenseItem = ({ expense }) => {
             </div>
           </div>
           <div className="flex items-center space-x-4">
-            <p className="text-lg">${expense.amount}</p>
+            <p className="text-lg">{currency} {expense.amount}</p> {/* Display amount with currency */}
             <button
               onClick={() => setIsEditing(true)}
               className="text-blue-500"

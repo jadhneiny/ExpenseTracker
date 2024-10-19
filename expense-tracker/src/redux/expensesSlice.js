@@ -28,8 +28,12 @@ const loadFromLocalStorage = () => {
       categories: ['Food', 'Transport', 'Bills', 'Entertainment', 'Others'],
       budget: 0,
       tags: [],
+      currency: 'USD',
     },
     reducers: {
+      setCurrency: (state, action) => {
+        state.currency = action.payload;
+      },
       addExpense: (state, action) => {
         state.expenses.push(action.payload);
         saveToLocalStorage(state.expenses); // Save after adding
@@ -61,5 +65,5 @@ const loadFromLocalStorage = () => {
     },
   });
   
-  export const { addExpense, removeExpense, editExpense, setBudget, addTag, markAsRecurring } = expensesSlice.actions;
+  export const { setCurrency, addExpense, removeExpense, editExpense, setBudget, addTag, markAsRecurring } = expensesSlice.actions;
   export default expensesSlice.reducer;
