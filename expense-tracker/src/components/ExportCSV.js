@@ -18,7 +18,7 @@ const ExportCSV = () => {
         data={expenses}
         headers={headers}
         filename="expenses.csv"
-        className="w-full p-2 bg-green-500 text-white rounded-md hover:bg-green-600 dark:bg-green-700 dark:hover:bg-green-600"
+        className="w-full p-2 bg-green-500 text-white rounded-md hover:bg-green-600 dark:bg-green-700 dark:hover:bg-green-600 inline-block text-center"
       >
         Download Expenses CSV
       </CSVLink>
